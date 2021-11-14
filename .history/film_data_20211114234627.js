@@ -1,11 +1,10 @@
 function reset() {
-    while (document.querySelector('iframe') != null) {
-        document.querySelector('iframe').remove();
-    }
     while (document.querySelector('img') != null) {
         document.querySelector('img').remove();
     }
-
+    while (document.querySelector('iframe') != null) {
+        document.querySelector('iframe').remove();
+    }
     let tble = document.querySelector('#tb');
     tble.innerHTML = "";
     while (document.querySelector('h2') != null) {
