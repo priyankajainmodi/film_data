@@ -90,19 +90,8 @@ but.onclick = () => {
                         fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_3pxoshah/${title}`)
                             .then((res) => { console.log(res); return res.json() })
                             .then((data) => {
-                                console.log(data);
-                                if (data.videoUrl == "") {
-                                    let box = document.querySelector("#rightbox");
-                                    let h = document.createElement('h2');
-                                    h.textContent = "Trailer not available >_<"
-                                    h.style.color = 'white';
-                                    box.appendChild(h);
-                                } else {
-                                    let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
-                                    video.src = `${url}`;
-                                    let divi = document.querySelector("#rightbox");
-                                    divi.appendChild(video);
-                                }
+                                let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
+                                video.src = `${url}`;
 
 
 
@@ -110,7 +99,8 @@ but.onclick = () => {
 
                     })
                     .catch((err) => { console.log(err); })
-
+                let divi = document.querySelector("#rightbox");
+                divi.appendChild(video);
 
                 img.src = data.Poster;
                 img.style.display = 'block';

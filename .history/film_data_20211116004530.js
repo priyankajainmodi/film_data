@@ -88,29 +88,18 @@ but.onclick = () => {
                     .then((title) => {
 
                         fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_3pxoshah/${title}`)
-                            .then((res) => { console.log(res); return res.json() })
+                            .then((res) => { return res.json() })
                             .then((data) => {
-                                console.log(data);
-                                if (data.videoUrl == "") {
-                                    let box = document.querySelector("#rightbox");
-                                    let h = document.createElement('h2');
-                                    h.textContent = "Trailer not available >_<"
-                                    h.style.color = 'white';
-                                    box.appendChild(h);
-                                } else {
-                                    let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
-                                    video.src = `${url}`;
-                                    let divi = document.querySelector("#rightbox");
-                                    divi.appendChild(video);
-                                }
+                                let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
+                                video.src = `${url}`;
 
 
 
                             })
-
                     })
                     .catch((err) => { console.log(err); })
-
+                let divi = document.querySelector("#rightbox");
+                divi.appendChild(video);
 
                 img.src = data.Poster;
                 img.style.display = 'block';
@@ -121,7 +110,7 @@ but.onclick = () => {
 
                 cell11.innerHTML = 'Actors';
                 cell12.innerHTML = `${data.Actors}`;
-                cell11.style.color = 'yellow';
+                cell11.style.color = 'tomato';
                 cell12.style.color = 'white';
                 cell11.style.paddingRight = 50;
                 cell12.style.width = 700;
@@ -132,7 +121,7 @@ but.onclick = () => {
 
                 cell21.innerHTML = 'Director';
                 cell22.innerHTML = `${data.Director}`;
-                cell21.style.color = 'yellow';
+                cell21.style.color = 'tomato';
                 cell22.style.color = 'white';
                 cell21.style.paddingRight = 50;
                 cell22.style.width = 700;
@@ -143,7 +132,7 @@ but.onclick = () => {
 
                 cell31.innerHTML = 'Genre';
                 cell32.innerHTML = `${data.Genre}`;
-                cell31.style.color = 'yellow';
+                cell31.style.color = 'tomato';
                 cell32.style.color = 'white';
                 cell31.style.paddingRight = 50;
                 cell32.style.width = 700;
@@ -154,7 +143,7 @@ but.onclick = () => {
 
                 cell41.innerHTML = 'Plot';
                 cell42.innerHTML = `${data.Plot}`;
-                cell41.style.color = 'yellow';
+                cell41.style.color = 'tomato';
                 cell42.style.color = 'white';
                 cell41.style.paddingRight = 50;
                 cell42.style.width = 700;
@@ -167,7 +156,7 @@ but.onclick = () => {
                 cell51.innerHTML = 'Duration';
                 let time = parseInt(data.Runtime);
                 cell52.innerHTML = `${Math.floor(time/60)} hr ${time%60} min`;
-                cell51.style.color = 'yellow';
+                cell51.style.color = 'tomato';
                 cell52.style.color = 'white';
                 cell51.style.paddingRight = 50;
                 cell52.style.width = 700;
@@ -180,7 +169,7 @@ but.onclick = () => {
                 cell61.innerHTML = 'imdbRating';
 
                 cell62.innerHTML = `${data.imdbRating}/10`;
-                cell61.style.color = 'yellow';
+                cell61.style.color = 'tomato';
                 cell62.style.color = 'white';
                 cell61.style.paddingRight = 50;
                 cell62.style.width = 700;

@@ -94,7 +94,7 @@ but.onclick = () => {
                                 if (data.videoUrl == "") {
                                     let box = document.querySelector("#rightbox");
                                     let h = document.createElement('h2');
-                                    h.textContent = "Trailer not available >_<"
+                                    h.textContent = "trailer not available >_<"
                                     h.style.color = 'white';
                                     box.appendChild(h);
                                 } else {

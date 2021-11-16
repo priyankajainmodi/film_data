@@ -1,0 +1,6 @@
+remove underline from heading and add new css
+responsiveness 
+dom loader
+await aync
+trailer not found 
+alt to image
