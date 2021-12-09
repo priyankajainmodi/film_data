@@ -2,7 +2,7 @@
 
 <head>
     <title>FilmData</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+
     <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Latest compiled and minified CSS -->
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background: black !important;
+            background: white !important;
         }
         
         #leftbox {
@@ -48,7 +48,6 @@
             cursor: pointer;
             height: 30px;
             width: 70px;
-            font-family: Karma;
         }
         
         .button:hover {
@@ -59,34 +58,34 @@
 </head>
 
 <body bgcolor="#0B0C10">
-    <h1 id="heading " style="color:#D8C3A5;margin-bottom:5l̥ōl̥l̥l̥l̥l̥l̥l̥ōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōōō0;border-radius:10px; text-align:center;font-family: Karma;;background-color:#C3073F;font-size:50px;margin:40px; "><b>FilmData</b></h1>
+    <h1 id="heading" style="color:#D8C3A5;margin-bottom:50;border-radius:10px; text-align:center;font-family:monospace;background-color:#C3073F;font-size:50px;margin:40px;">FilmData</h1>
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div id="enter">
 
-    <div id="enter " style="margin-bottom: 20px; ">
 
 
-
-        <input class="input " style=" border-radius:20px;height:40;width:300;font-size:18;font-family:calibri; " type="text " placeholder="Enter Movie Name "></input>
-        <button class="button "><b>Search</b></button>
+        <input class="input" style=" border-radius:20px;height:40;width:300;font-size:18;font-family:calibri;" type="text" placeholder="Enter Movie Name"></input>
+        <button class="button"><b>Search</b></button>
 
     </div>
 
-    <!-- <div id="content ">
+    <div id="content">
         <div>
-            <div id="leftbox ">
-
-
+            <div id="leftbox">
             </div>
-            <div id="rightbox "></div>
+            <div id="rightbox"></div>
         </div>
         <br>
         <br>
-        <table id="tb ">
+        <table id="tb">
 
         </table>
-    </div> -->
+    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js "></script>
-    <script src="film_data.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="film_data.js"></script>
 </body>
 
 </html>

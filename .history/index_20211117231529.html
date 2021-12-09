@@ -1,0 +1,77 @@
+<html>
+
+<head>
+    <title>FilmData</title>
+
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #leftbox {
+            float: left;
+            margin-top: 20;
+            width: 30%;
+            height: 455px;
+            margin-bottom: 30;
+        }
+        
+        #rightbox {
+            float: right;
+            margin-top: 20;
+            width: 70%;
+            height: 455px;
+            margin-bottom: 30;
+        }
+        
+        .button {
+            background-color: red;
+            border: none;
+            color: black;
+            text-align: center;
+            font-size: 15px;
+            opacity: 1;
+            transition: 0.3s;
+            display: inline-block;
+            text-decoration: none;
+            cursor: pointer;
+            height: 30px;
+            width: 70px;
+        }
+        
+        .button:hover {
+            opacity: 0.6
+        }
+    </style>
+
+</head>
+
+<body bgcolor="#000000">
+    <h1 id="heading" style="color:#000;margin-bottom:50;border-radius:10px; text-align:center;font-family:monospace;background-color:rgba(255,255,0,1);font-size:50px;margin:40px;">FilmData</h1>
+
+    <div id="enter">
+
+
+        <i class="fas fa-search" style="color:white;"></i>
+        <input class="input" style=" border-radius:20px;height:40;width:300;font-size:18;font-family:calibri;" type="text" placeholder="Enter Movie Name"></input>
+        <button class="button"><b>Search</b></button>
+
+    </div>
+
+    <div id="content">
+        <div>
+            <div id="leftbox">
+            </div>
+            <div id="rightbox"></div>
+        </div>
+        <br>
+        <br>
+        <table id="tb">
+
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="film_data.js"></script>
+</body>
+
+</html>

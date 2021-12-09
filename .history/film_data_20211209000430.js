@@ -256,8 +256,8 @@ but.onclick = () => {
                         .then((res) => { return res.json() })
                         .then((data) => {
                             console.log(data.videoUrl);
-                            if (data.videoUrl == "") {
-                                console.log("not there");
+                            if (data.videoUrl == null) {
+                                console.log("not there")
                                 let h = document.createElement('h2');
                                 h.textContent = "Trailer not available >_<"
                                 h.style.color = 'white';

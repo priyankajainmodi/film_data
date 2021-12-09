@@ -196,9 +196,9 @@ let but = document.querySelector('button')
 // }
 
 but.onclick = () => {
-    fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${inp.value}`)
-        .then((res) => { return res.json(); })
-        .then((data) => {
+fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${inp.value}`)
+    .then((res) => { return res.json(); })
+    .then((data) => {
             let div = document.createElement('div');
 
 
@@ -253,44 +253,33 @@ but.onclick = () => {
                     img.style.float = 'left';
                     document.body.appendChild(img);
                     fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_3pxoshah/${i.id}`)
-                        .then((res) => { return res.json() })
+                        .then((res) => { console.log(res); return res.json() })
                         .then((data) => {
                             console.log(data.videoUrl);
-                            if (data.videoUrl == "") {
-                                console.log("not there");
+                            if (data.videoUrl == null) {
+                                let box = document.querySelector("#rightbox");
                                 let h = document.createElement('h2');
                                 h.textContent = "Trailer not available >_<"
                                 h.style.color = 'white';
-                                document.body.appendChild(h);
+                                box.appendChild(h);
                             } else {
                                 let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
                                 video.src = `${url}`;
-
-                                document.body.appendChild(video);
+                                let divi = document.querySelector("#rightbox");
+                                divi.appendChild(video);
                             }
 
 
 
                         })
 
+                })
+            .catch((err) => { console.log(err); })
 
 
 
 
-
-
-                }
-
-
-
-
-
-
-
-
-
-
-            }
+        }
 
 
 
@@ -301,10 +290,21 @@ but.onclick = () => {
 
 
 
+    }
 
 
 
-        })
+
+
+
+
+
+
+
+
+
+
+})
 
 
 

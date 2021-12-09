@@ -13,14 +13,6 @@ function reset() {
     }
 
 }
-
-function resetSearch() {
-    while (document.querySelector('.search') != null) {
-        document.querySelector('.search').remove();
-    }
-
-}
-
 let inp = document.querySelector('input');
 let but = document.querySelector('button')
 
@@ -199,94 +191,14 @@ but.onclick = () => {
     fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${inp.value}`)
         .then((res) => { return res.json(); })
         .then((data) => {
-            let div = document.createElement('div');
-
-
-            document.body.appendChild(div);
-            let video = document.createElement('iframe');
-            video.height = 400;
-            video.width = 900;
-
             for (let i of data.results) {
-                // console.log(i);
-                // let img = document.createElement('img');
-                // img.src = i.image;
-                // img.style.display = 'block';
-                // img.alt = "image couldn't load -_-";
-                // img.style.color = 'white';
-                // img.height = 455;
-                // img.width = 350;
-                // let divi1 = document.querySelector('#leftbox');
-                // divi1.appendChild(img);
-
-                let div1 = document.createElement('div');
-                div1.classList.add("search");
-
+                console.log(i);
                 let img = document.createElement('img');
                 img.src = i.image;
                 img.style.display = 'block';
-                img.height = 455;
-                img.width = 350;
-                div1.style.float = 'left';
-                img.style.marginLeft = 20;
-
-                div1.style.marginTop = 20;
-                div1.appendChild(img);
-                let p = document.createElement('h3');
-                p.innerText = i.title;
-                p.style.textAlign = 'center';
-                p.style.fontFamily = 'Karma'
-                p.style.color = '#D8C3A5';
-
-                div1.appendChild(p);
-                div.appendChild(div1);
-                p.onclick = () => {
-                    resetSearch();
-
-                    let img = document.createElement('img');
-                    img.src = i.image;
-                    img.style.display = 'block';
-                    img.alt = "image couldn't load -_-";
-                    img.style.color = 'white';
-                    img.height = 455;
-                    img.width = 350;
-                    img.style.float = 'left';
-                    document.body.appendChild(img);
-                    fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_3pxoshah/${i.id}`)
-                        .then((res) => { return res.json() })
-                        .then((data) => {
-                            console.log(data.videoUrl);
-                            if (data.videoUrl == "") {
-                                console.log("not there");
-                                let h = document.createElement('h2');
-                                h.textContent = "Trailer not available >_<"
-                                h.style.color = 'white';
-                                document.body.appendChild(h);
-                            } else {
-                                let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
-                                video.src = `${url}`;
-
-                                document.body.appendChild(video);
-                            }
-
-
-
-                        })
-
-
-
-
-
-
-
-                }
-
-
-
-
-
-
-
+                img.alt = "image couldn't load -_-";
+                img.style.color = 'white';
+                body.append(img);
 
 
 

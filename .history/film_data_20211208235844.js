@@ -253,11 +253,11 @@ but.onclick = () => {
                     img.style.float = 'left';
                     document.body.appendChild(img);
                     fetch(`https://imdb-api.com/en/API/YouTubeTrailer/k_3pxoshah/${i.id}`)
-                        .then((res) => { return res.json() })
+                        .then((res) => { console.log(res); return res.json() })
                         .then((data) => {
                             console.log(data.videoUrl);
-                            if (data.videoUrl == "") {
-                                console.log("not there");
+                            if (data.videoUrl == null) {
+
                                 let h = document.createElement('h2');
                                 h.textContent = "Trailer not available >_<"
                                 h.style.color = 'white';
