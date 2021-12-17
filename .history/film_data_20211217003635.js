@@ -24,9 +24,8 @@ function reset() {
 let inp = document.querySelector('input');
 let but = document.querySelector('button');
 but.onclick = () => {
-    let input = inp.value;
-    inp.value = "";
-    fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${input}`)
+
+    fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${inp.value}`)
         .then((res) => { return res.json(); })
         .then((data) => {
             reset();
@@ -90,10 +89,8 @@ but.onclick = () => {
                                 console.log("not there");
                                 let h = document.createElement('h2');
                                 h.textContent = "Trailer not available >_<"
-                                h.style.marginBottom = 470;
+                                h.style.marginBottom = 450;
                                 h.style.color = 'white';
-                                h.style.fontFamily = 'Karma';
-
                                 document.body.appendChild(h);
                             } else {
                                 let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
@@ -142,10 +139,7 @@ but.onclick = () => {
                                     cell12.style.width = 700;
                                     cell11.innerHTML = 'Actors';
                                     cell12.innerHTML = `${data.stars}`;
-                                    if (data.stars == "" || data.stars == null) {
-                                        cell12.innerHTML = "Actor's name not available";
-                                        cell12.style.textDecoration = "underline";
-                                    } else
+                                    if (data.stars == "" || data.stars == null) { cell12.innerHTML = "Actor's name not available" } else
                                         cell22.innerHTML = `${data.directors}`;
 
                                     //row for director detail
@@ -158,10 +152,7 @@ but.onclick = () => {
                                     cell21.style.paddingRight = 50;
                                     cell22.style.width = 700;
                                     cell21.innerHTML = 'Director';
-                                    if (data.directors == "" || data.directors == null) {
-                                        cell22.innerHTML = "director name not available";
-                                        cell22.style.textDecoration = "underline";
-                                    } else
+                                    if (data.directors == "" || data.directors == null) { cell22.innerHTML = "director name not available" } else
                                         cell22.innerHTML = `${data.directors}`;
 
 
@@ -176,10 +167,7 @@ but.onclick = () => {
                                     cell32.style.width = 700;
                                     cell31.innerHTML = 'Genre';
 
-                                    if (data.genres == "" || data.genres == null) {
-                                        cell32.innerHTML = "Genre not available";
-                                        cell32.style.textDecoration = "underline";
-                                    } else
+                                    if (data.genres == "" || data.genres == null) { cell32.innerHTML = "Genre not available" } else
                                         cell32.innerHTML = `${data.genres}`;
 
 
@@ -194,10 +182,7 @@ but.onclick = () => {
                                     cell41.style.paddingRight = 50;
                                     cell42.style.width = 700;
                                     cell41.innerHTML = 'Plot';
-                                    if (data.plot == "" || data.plot == null) {
-                                        cell42.innerHTML = "plot not available";
-                                        cell42.style.textDecoration = "underline";
-                                    } else
+                                    if (data.plot == "" || data.plot == null) { cell42.innerHTML = "plot not available" } else
                                         cell42.innerHTML = `${data.plot}`;
 
                                     //row for movie time
@@ -209,10 +194,7 @@ but.onclick = () => {
                                     cell51.style.paddingRight = 50;
                                     cell52.style.width = 700;
                                     cell51.innerHTML = 'Duration';
-                                    if (data.runtimeMins == "" || data.runtimeMins == null) {
-                                        cell52.innerHTML = "runTime not available";
-                                        cell52.style.textDecoration = "underline";
-                                    } else {
+                                    if (data.runtimeMins == "" || data.runtimeMins == null) { cell52.innerHTML = "runTime not available" } else {
                                         let time = parseInt(data.runtimeMins);
                                         cell52.innerHTML = `${Math.floor(time/60)} hr ${time%60} min`;
                                     }
@@ -227,10 +209,7 @@ but.onclick = () => {
                                     cell61.style.paddingRight = 50;
                                     cell62.style.width = 700;
                                     cell61.innerHTML = 'imdbRating';
-                                    if (data.imDbRating == "" || data.imDbRating == null) {
-                                        cell62.innerHTML = "imDb rating not available";
-                                        cell62.style.textDecoration = "underline";
-                                    } else
+                                    if (data.imDbRating == "" || data.imDbRating == null) { cell62.innerHTML = "imDb rating not available" } else
 
 
                                         cell62.innerHTML = `${data.imDbRating}/10`;

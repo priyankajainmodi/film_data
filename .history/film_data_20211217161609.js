@@ -24,9 +24,8 @@ function reset() {
 let inp = document.querySelector('input');
 let but = document.querySelector('button');
 but.onclick = () => {
-    let input = inp.value;
-    inp.value = "";
-    fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${input}`)
+
+    fetch(`https://imdb-api.com/en/API/SearchTitle/k_3pxoshah/${inp.value}`)
         .then((res) => { return res.json(); })
         .then((data) => {
             reset();
@@ -93,7 +92,6 @@ but.onclick = () => {
                                 h.style.marginBottom = 470;
                                 h.style.color = 'white';
                                 h.style.fontFamily = 'Karma';
-
                                 document.body.appendChild(h);
                             } else {
                                 let url = `${data.videoUrl.replace('watch?v=', 'embed/')}`;
@@ -144,7 +142,7 @@ but.onclick = () => {
                                     cell12.innerHTML = `${data.stars}`;
                                     if (data.stars == "" || data.stars == null) {
                                         cell12.innerHTML = "Actor's name not available";
-                                        cell12.style.textDecoration = "underline";
+                                        cell12.style.textDecoration = "underline overline";
                                     } else
                                         cell22.innerHTML = `${data.directors}`;
 
@@ -160,7 +158,7 @@ but.onclick = () => {
                                     cell21.innerHTML = 'Director';
                                     if (data.directors == "" || data.directors == null) {
                                         cell22.innerHTML = "director name not available";
-                                        cell22.style.textDecoration = "underline";
+                                        cell22.style.textDecoration = "underline overline";
                                     } else
                                         cell22.innerHTML = `${data.directors}`;
 
@@ -178,7 +176,7 @@ but.onclick = () => {
 
                                     if (data.genres == "" || data.genres == null) {
                                         cell32.innerHTML = "Genre not available";
-                                        cell32.style.textDecoration = "underline";
+                                        cell32.style.textDecoration = "underline overline";
                                     } else
                                         cell32.innerHTML = `${data.genres}`;
 
@@ -196,7 +194,7 @@ but.onclick = () => {
                                     cell41.innerHTML = 'Plot';
                                     if (data.plot == "" || data.plot == null) {
                                         cell42.innerHTML = "plot not available";
-                                        cell42.style.textDecoration = "underline";
+                                        cell42.style.textDecoration = "underline overline";
                                     } else
                                         cell42.innerHTML = `${data.plot}`;
 
@@ -211,7 +209,7 @@ but.onclick = () => {
                                     cell51.innerHTML = 'Duration';
                                     if (data.runtimeMins == "" || data.runtimeMins == null) {
                                         cell52.innerHTML = "runTime not available";
-                                        cell52.style.textDecoration = "underline";
+                                        cell52.style.textDecoration = "underline overline";
                                     } else {
                                         let time = parseInt(data.runtimeMins);
                                         cell52.innerHTML = `${Math.floor(time/60)} hr ${time%60} min`;
@@ -229,7 +227,7 @@ but.onclick = () => {
                                     cell61.innerHTML = 'imdbRating';
                                     if (data.imDbRating == "" || data.imDbRating == null) {
                                         cell62.innerHTML = "imDb rating not available";
-                                        cell62.style.textDecoration = "underline";
+                                        cell62.style.textDecoration = "underline overline";
                                     } else
 
 
